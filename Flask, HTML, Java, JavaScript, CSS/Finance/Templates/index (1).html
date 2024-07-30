@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}
+
+    Index
+
+{% endblock %}
+
+{% block main %}
+
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+
+        <th>
+            symbol
+        </th>
+        <th>
+            total shares
+        </th>
+        <th>
+            price
+        </th>
+        <th>
+            total
+        </th>
+
+    </tr>
+    </thead>
+    <tbody>
+    {% for stocks in data %}
+
+    <tr>
+        <td>{{stocks["symbol"]}}</td>
+        <td>{{stocks["shares"]}}</td>
+        <td>{{stocks["price"] | usd }}</td>
+        <td>${{ '%.2f' | format(stocks["price"] * stocks["shares"] | float) }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+
+<tfooter>
+<tr>
+    <td></td>
+    <td></td>
+    <td>cash</td>
+    <td>${{ cash | usd }}</td>
+</tr>
+</tfooter>
+</table>
+{% endblock %}

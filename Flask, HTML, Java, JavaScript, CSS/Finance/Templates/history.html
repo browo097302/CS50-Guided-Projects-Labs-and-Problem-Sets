@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block title %}
+
+    Index
+
+{% endblock %}
+
+{% block main %}
+
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+
+        <th>
+            id
+        </th>
+        <th>
+            symbol
+        </th>
+        <th>
+            shares
+        </th>
+        <th>
+            price
+        </th>
+        <th>
+            timestamp
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for transactions in data %}
+
+    <tr>
+        <td>{{transactions["id"]}}</td>
+        <td>{{transactions["symbol"]}}</td>
+        <td>{{transactions["shares"]}}</td>
+        <td>{{transactions["price"] | usd}}</td>
+        <td>{{transactions["timestamp"]}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+
+<tfooter>
+<tr>
+    <td></td>
+    <td></td>
+    <td>cash</td>
+    <td>{{ cash }}</td>
+</tr>
+</tfooter>
+</table>
+{% endblock %}

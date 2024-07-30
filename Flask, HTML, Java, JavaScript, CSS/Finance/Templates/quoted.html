@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}
+
+    Quoted
+
+{% endblock %}
+
+{% block main %}
+
+<h1>ticker: {{symbol}}</h1>
+<h2>price: {{ '%.2f' | format(price)}}</h2>
+
+{% endblock %}
